@@ -7,7 +7,7 @@ public class Launcher {
 
         final String runnableId = args[0];
         final ClassPathXmlApplicationContext context = 
-            new ClassPathXmlApplicationContext("applicationContext.xml");
+            new ClassPathXmlApplicationContext("launcherContext.xml");
         final Runnable runnable = context.getBean(runnableId, Runnable.class);
             runnable.run(args);
 

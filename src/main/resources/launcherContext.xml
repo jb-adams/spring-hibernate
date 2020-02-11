@@ -1,0 +1,69 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:sport.properties" />
+    
+
+    <!-- Define Beans Here -->
+    <bean
+        id="CoachApp"
+        class="org.jbadams.spring.springdemo.CoachApp">
+    </bean>
+    <bean
+        id="HelloSpringApp"
+        class="org.jbadams.spring.springdemo.HelloSpringApp">
+    </bean>
+    <bean
+        id="SetterDemoApp"
+        class="org.jbadams.spring.springdemo.SetterDemoApp">
+    </bean>
+    <bean
+        id="BeanScopeDemoApp"
+        class="org.jbadams.spring.springdemo.BeanScopeDemoApp">
+    </bean>
+    <bean
+        id="BeanLifeCycleDemoApp"
+        class="org.jbadams.spring.springdemo.BeanLifeCycleDemoApp">
+    </bean>
+    <bean
+        id="AnnotationDemo"
+        class="org.jbadams.spring.demoannotations.AnnotationDemo">
+    </bean>
+    <bean
+        id="AnnotationBeanScopeDemo"
+        class="org.jbadams.spring.demoannotations.AnnotationBeanScopeDemo">
+    </bean>
+    <bean
+        id="JavaConfigDemo"
+        class="org.jbadams.spring.demoannotations.JavaConfigDemo">
+    </bean>
+    <bean
+        id="SwimJavaConfigDemo"
+        class="org.jbadams.spring.demoannotations.SwimJavaConfigDemo">
+    </bean>
+    <bean
+        id="MathDemo"
+        class="org.jbadams.spring.demoannotations.MathDemo">
+    </bean>
+
+    <bean
+        id="Activity3"
+        class="org.jbadams.spring.activities.Activity3">
+    </bean>
+    <bean
+        id="Activity4"
+        class="org.jbadams.spring.demoannotations.Activity4">
+    </bean>
+    <bean
+        id="Activity5"
+        class="org.jbadams.spring.demoannotations.Activity5">
+    </bean>
+</beans>

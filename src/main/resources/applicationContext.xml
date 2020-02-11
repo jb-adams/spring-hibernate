@@ -8,25 +8,64 @@
                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:sport.properties" />
+    
+
+    <!-- Define Beans Here -->
     <bean
-        id="CoachApp"
-        class="org.jbadams.spring.springdemo.CoachApp">
+        id="HappyFortuneService"
+        class="org.jbadams.spring.springdemo.HappyFortuneService">
     </bean>
     <bean
-        id="HelloSpringApp"
-        class="org.jbadams.spring.springdemo.HelloSpringApp">
+        id="RandomFortuneService"
+        class="org.jbadams.spring.springdemo.RandomFortuneService">
     </bean>
     
     <bean
         id="BaseballCoach"
         class="org.jbadams.spring.springdemo.BaseballCoach">
+        <!-- Dependency injection by constructor -->
+        <constructor-arg ref="HappyFortuneService"></constructor-arg> 
+
     </bean>
     <bean
         id="TrackCoach"
-        class="org.jbadams.spring.springdemo.TrackCoach">
+        class="org.jbadams.spring.springdemo.TrackCoach"
+        scope="prototype">
+
+        <!-- "singleton" Bean scope (default), only 1  underlying object -->
+        <!-- "prototype" Bean scope, new underlying object created for each 
+             request -->
+        <!-- Dependency injection by constructor -->
+        <constructor-arg ref="HappyFortuneService"></constructor-arg>
+    </bean>
+    <bean
+        id="CricketCoach"
+        class="org.jbadams.spring.springdemo.CricketCoach">
+        <!--
+            Dependency injection by setter method
+            name: the argument name (runs "set{NAME}" method in the class)
+            ref: reference to Spring Bean Id
+        -->
+        <property name="fortuneService" ref="HappyFortuneService" />
+        <!--
+            Dependency injection: literals 
+            Hardcoded, use properties file instead
+        -->
+        <!-- <property name="emailAddress" value="thebestcoach@luv2code.com" /> -->
+        <!-- <property name="team" value="Sunrisers Hyderabad" /> -->
+
+        <!-- Dependency injection: literals from properties file -->
+        <property name="emailAddress" value="${coach.email}" />
+        <property name="team" value="${coach.team}" />
     </bean>
     <bean
         id="VolleyballCoach"
         class="org.jbadams.spring.springdemo.VolleyballCoach">
+        <!-- Dependency injection by constructor -->
+        <constructor-arg ref="RandomFortuneService"></constructor-arg>
+        <property name="emailAddress" value="${coach.email}" />
+        <property name="team" value="${coach.team}" />
     </bean>
 </beans>

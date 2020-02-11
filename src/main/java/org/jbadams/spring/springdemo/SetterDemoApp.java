@@ -2,10 +2,9 @@ package org.jbadams.spring.springdemo;
 import org.jbadams.spring.Runnable;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class HelloSpringApp implements Runnable {
+public class SetterDemoApp implements Runnable {
 
     public void run(String[] args) {
-
         // load the spring configuration file
         ClassPathXmlApplicationContext context = 
             new ClassPathXmlApplicationContext(
@@ -19,10 +18,10 @@ public class HelloSpringApp implements Runnable {
         // call methods on the bean
         System.out.println(theCoach.getDailyWorkout());
         System.out.println(theCoach.getDailyFortune());
+        System.out.println(theCoach.getEmailAddress());
+        System.out.println(theCoach.getTeam());
 
         // close the context
         context.close();
-
     }
-
 }
