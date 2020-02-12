@@ -17,4 +17,14 @@ public class BaseballCoach implements Coach {
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
+
+    @Override
+    public String getEmailAddress() {
+        return "myemail@email.com";
+    }
+
+    @Override
+    public String getTeam() {
+        return "Toronto Maple Leafs";
+    }
 }
