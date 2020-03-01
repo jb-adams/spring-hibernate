@@ -24,9 +24,17 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean id="myBeansValidator"
+        class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    <mvc:annotation-driven validator="myBeansValidator" />
+
+	<!-- Load custom message resource -->
+	<bean 
+		id="messageSource"
+		name="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>classpath*:messages</value>
+		</property>
+	</bean>
 </beans>
-
-
-
-
-
